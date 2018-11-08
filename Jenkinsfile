@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage("build and test the project") {
             agent {
-                label "our-build-tools-agent"
+                label "slave1"
             }
             stages {
                stage("build") {
@@ -34,7 +34,7 @@ pipeline {
                 message "Should we deploy the project?"
             }
             agent {
-                label "our-deploy-tools-agent"
+                label "slave1"
             }
             steps {
                 unstash "artifacts"
